@@ -86,5 +86,73 @@ class performances extends StatelessWidget {
   }
 }
 
+class schedule extends StatelessWidget {
+  final Image image;
+  final String text;
+  final String jam;
+  final IconData icon;
+  const schedule({Key? key, required this.image, required this.text, required this.jam, required this.icon}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(bottom: 20),
+      child: Container(
+        padding: EdgeInsets.all(10),
+        height: 150,
+        width: 342,
+        decoration: BoxDecoration(
+            color: Mycolor['brown'],
+            borderRadius: BorderRadius.circular(20)
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            image,
+            Container(
+              padding: EdgeInsets.only(left: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    text,
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Mycolor['white'],
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poopins'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        jam,
+                        style: TextStyle(
+                            fontSize: 24,
+                            color: Mycolor['orange'],
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poopins'),
+                      ),
+                      SizedBox(width: 5,),
+                      Icon(
+                        icon,
+                        color: Mycolor['orange'],
+                        size: 35,
+                      )
+                    ],
+                  )
+
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 

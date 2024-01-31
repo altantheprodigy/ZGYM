@@ -108,7 +108,9 @@ class HomePage extends StatelessWidget {
                         ),
                         angka: "2378"),
                   ),
-                  SizedBox(width: 20,),
+                  SizedBox(
+                    width: 20,
+                  ),
                   Flexible(
                     fit: FlexFit.tight,
                     child: performances(
@@ -137,45 +139,33 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                height: 150,
-                width: 342,
-                decoration: BoxDecoration(
-                  color: Mycolor['brown'],
-                  borderRadius: BorderRadius.circular(20)
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset("assets/images/meditation.png", height: 138, width: 138,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Meditate",
-                          style: TextStyle(
-                              fontSize: 24,
-                              color: Mycolor['white'],
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Poopins'),
-                        ),
-                        Text(
-                          "6AM",
-                          style: TextStyle(
-                              fontSize: 24,
-                              color: Mycolor['white'],
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Poopins'),
-                        ),
-
-                      ],
-                    )
-                  ],
-                ),
-              )
+              schedule(
+                  image: Image.asset(
+                    "assets/images/meditation.png",
+                    height: 138,
+                    width: 138,
+                  ),
+                  text: "Meditate",
+                  jam: "6AM",
+                  icon: Icons.access_time_filled_rounded),
+              schedule(
+                  image: Image.asset(
+                    "assets/images/workout.png",
+                    height: 138,
+                    width: 138,
+                  ),
+                  text: "Workout",
+                  jam: "3PM",
+                  icon: Icons.access_time_filled_rounded),
+              schedule(
+                  image: Image.asset(
+                    "assets/images/joging.png",
+                    height: 138,
+                    width: 138,
+                  ),
+                  text: "Jogging",
+                  jam: "5PM",
+                  icon: Icons.access_time_filled_rounded),
             ],
           ),
         ),
