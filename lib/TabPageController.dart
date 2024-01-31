@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zgym/Page/Home.dart';
 import 'package:zgym/Page/Komponen.dart';
+import 'package:zgym/Page/Program.dart'; 
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -10,13 +11,9 @@ class TabPage extends StatefulWidget {
 }
 
 class _TabPageState extends State<TabPage> {
-
   List<Widget> halaman = [
     HomePage(),
-
-    Container(
-      color: Colors.blue,
-    ),
+    ProgramPage(),
     Container(
       color: Colors.yellow,
     ),
@@ -40,53 +37,59 @@ class _TabPageState extends State<TabPage> {
       body: PageView(
         controller: pageController,
         children: halaman,
-      ),
-      bottomNavigationBar: Theme(
-      data: ThemeData(
-      canvasColor: Mycolor['orange'],
-      ),
-      child: BottomNavigationBar(
-        elevation: 0,
-        currentIndex: _currentIndex,
-        onTap: (index) {
+        onPageChanged: (index) {
           setState(() {
             _currentIndex = index;
-            pageController.animateToPage(index,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeOutCirc,
-            );
           });
         },
-        showUnselectedLabels: false,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
-        selectedIconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-        unselectedIconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        iconSize: size.width * (padSize / size.width),
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.ac_unit),
-              label: 'Program'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.rocket),
-              label: 'Orders'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Chat'
-          )
-        ],
       ),
-    )
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          canvasColor: Mycolor['orange'],
+        ),
+        child: BottomNavigationBar(
+          elevation: 0,
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+              pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeOutCirc,
+              );
+            });
+          },
+          showUnselectedLabels: false,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          selectedIconTheme: IconThemeData(
+            color: Colors.white,
+          ),
+          unselectedIconTheme: const IconThemeData(
+            color: Colors.white,
+          ),
+          iconSize: size.width * (padSize / size.width),
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.fitness_center),
+              label: 'Program',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.navigation),
+              label: 'Orders',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Chat',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
