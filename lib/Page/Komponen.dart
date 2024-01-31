@@ -43,4 +43,48 @@ class ProgramChoice extends StatelessWidget {
   }
 }
 
+class performances extends StatelessWidget {
+  final Color backgroundColor;
+  final String text;
+  final Image image;
+  final String angka;
+  const performances({Key? key, required this.backgroundColor, required this.text, required this.image, required this.angka}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 220,
+      width: 161,
+      decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(10)
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            text,
+            style: TextStyle(
+                fontSize: 24,
+                color: Mycolor['white'],
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Poopins'),
+          ),
+         image,
+          Text(
+            angka,
+            style: TextStyle(
+                fontSize: 34,
+                color: Mycolor['white'],
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Poopins'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
 
