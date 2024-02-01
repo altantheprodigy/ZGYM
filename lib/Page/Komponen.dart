@@ -155,4 +155,105 @@ class schedule extends StatelessWidget {
   }
 }
 
+class tanggal extends StatelessWidget {
+  final String bulan;
+  final String angka;
+  const tanggal({Key? key, required this.bulan, required this.angka}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      height: 53,
+      width: 22,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            bulan,
+            style: TextStyle(
+                fontSize: 12,
+                color: Color(0xFFD9D9D9),
+                fontWeight: FontWeight.normal,
+                fontFamily: 'Poopins'),
+          ),
+          Text(
+            angka,
+            style: TextStyle(
+              fontSize: 16,
+              color: Mycolor['brown'],
+              fontWeight: FontWeight.bold,),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AdsContainer extends StatelessWidget {
+  final String text;
+  final String? text1;
+  final String imageAssetPath;
+
+
+  AdsContainer({
+    Key? key,
+    required this.text,
+    required this.text1,
+    required this.imageAssetPath,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final padSize = 14.0;
+
+    return Padding(
+      padding: EdgeInsets.all(size.width * (padSize / size.width)),
+      child: Container(
+        clipBehavior: Clip.hardEdge,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Colors.grey),
+        ),
+        child: Column(
+          children: [
+            Image.asset(
+              imageAssetPath,
+              fit: BoxFit.fill,
+              // width: double.maxFinite,
+
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Mycolor['brown']
+              ),
+              width: double.maxFinite,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    text,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Lato'),
+                  ),
+                  Text(
+                    text1!,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Lato'),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
 

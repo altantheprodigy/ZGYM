@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:zgym/Bulking.dart';
 import 'package:zgym/Page/Home.dart';
 import 'package:zgym/Page/Komponen.dart';
-import 'package:zgym/Page/Program.dart'; 
+import 'package:zgym/Page/Program.dart';
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class _TabPageState extends State<TabPage> {
   List<Widget> halaman = [
     HomePage(),
     ProgramPage(),
+    bulkingPage(),
     Container(
       color: Colors.yellow,
     ),
@@ -45,7 +47,7 @@ class _TabPageState extends State<TabPage> {
       ),
       bottomNavigationBar: Theme(
         data: ThemeData(
-          canvasColor: Mycolor['orange'],
+          canvasColor: Mycolor['bottombar'],
         ),
         child: BottomNavigationBar(
           elevation: 0,
