@@ -193,67 +193,114 @@ class AdsContainer extends StatelessWidget {
   final String text;
   final String? text1;
   final String imageAssetPath;
+  final double height;
+  final double width;
+  final double height1;
+  final double width1;
 
 
   AdsContainer({
     Key? key,
     required this.text,
     required this.text1,
-    required this.imageAssetPath,
+    required this.imageAssetPath, required this.height, required this.width, required this.height1, required this.width1,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final padSize = 14.0;
 
-    return Padding(
-      padding: EdgeInsets.all(size.width * (padSize / size.width)),
-      child: Container(
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: Colors.grey),
+    return Column(
+      children: [
+        Container(
+          width: width,
+          height: height,
+          clipBehavior: Clip.hardEdge,
+          decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(5),
+                topLeft: Radius.circular(5),)),
+          child: Image.asset(
+            imageAssetPath,
+            fit: BoxFit.cover,
+          ),
         ),
-        child: Column(
-          children: [
-            Image.asset(
-              imageAssetPath,
-              fit: BoxFit.fill,
-              // width: double.maxFinite,
-
-            ),
-            Container(
-              padding: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Mycolor['brown']
+        Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(5),
+                  bottomLeft: Radius.circular(5)),
+              color: Mycolor['brown']),
+          height: height1,
+          width: width1,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                text,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Lato'),
               ),
-              width: double.maxFinite,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    text,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Lato'),
-                  ),
-                  Text(
-                    text1!,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Lato'),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+              Text(
+                text1!,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Lato'),
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 }
 
+class polaMakan extends StatelessWidget {
+final String imageAsset;
+final String judul;
+  const polaMakan({Key? key, required this.imageAsset, required this.judul}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return  Row(
+      children: [
+        Container(
+          width: 65,
+          height: 140,
+          clipBehavior: Clip.hardEdge,
+          decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(5),
+                  bottomLeft: Radius.circular(5))),
+          child: Image.asset(
+            imageAsset,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(5),
+                  bottomRight: Radius.circular(5)),
+              color: Mycolor['orange']),
+          height: 140,
+          width: 65,
+          child: Center(
+            child: Text(
+              judul,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
+              ),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
