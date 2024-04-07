@@ -2,6 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../ScheduleData.dart';
+
+
 Map Mycolor = {
   'brown': const Color(0xFF4A3F35),
   'orange': const Color(0xFFFA7D09),
@@ -301,6 +304,74 @@ final String judul;
           ),
         )
       ],
+    );
+  }
+}
+
+
+class scheduleTab extends StatelessWidget {
+  final int index;
+  const scheduleTab({Key? key, required this.index}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(bottom: 10),
+      child: Container(
+        padding: EdgeInsets.all(10),
+        height: 150,
+        width: 342,
+        decoration: BoxDecoration(
+            color: Mycolor['brown'],
+            borderRadius: BorderRadius.circular(20)
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset('assets/images/' + ScheduleData[index]['photo'],height: 138,
+              width: 138,),
+            Container(
+              padding: EdgeInsets.only(left: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    ScheduleData[index]["nama"],
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Mycolor['white'],
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poopins'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        ScheduleData[index]["jam"],
+                        style: TextStyle(
+                            fontSize: 24,
+                            color: Mycolor['orange'],
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poopins'),
+                      ),
+                      SizedBox(width: 5,),
+                      Icon(
+                        Icons.access_time_filled_rounded,
+                        color: Mycolor['orange'],
+                        size: 35,
+                      )
+                    ],
+                  )
+
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

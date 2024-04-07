@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zgym/Page/HomeCtr.dart';
 import 'package:zgym/TabPageController.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: TabPage(),
+      home: HomeCtr(),
     );
   }
 }

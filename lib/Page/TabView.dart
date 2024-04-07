@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:zgym/Extension.dart';
 import 'package:zgym/Page/Komponen.dart';
 
 import '../ScheduleData.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class TabletView extends StatelessWidget {
+  const TabletView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -142,22 +143,24 @@ class HomePage extends StatelessWidget {
                 height: 30,
               ),
               Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 10,
-                ),
-                child: ListView.builder(
+                width: MediaQuery.of(context).size.width,
+                height: 500,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // Number of columns
+                    crossAxisSpacing: 20.0, // Spacing between columns
+                    mainAxisSpacing: 10.0,
+                    childAspectRatio: 2
+                    // Spacing between rows
+                  ),
                   shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return scheduleTab(index: index);
-                  },
+                  physics: NeverScrollableScrollPhysics(),
                   itemCount: ScheduleData.length,
-                ),
-              ),
+                  itemBuilder: (context, index) {
+                    return  scheduleTab(index: index);
+                  },),
+              )
+
             ],
           ),
         ),
