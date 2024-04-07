@@ -15,6 +15,8 @@ class HomeCtr extends GetResponsiveView {
   Widget phone() {
     return const HomePage();
   }
-
-
+  Widget tablet() {
+    return const TabletView();
+  }
+ // halooo
 }
