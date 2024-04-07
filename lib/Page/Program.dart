@@ -122,7 +122,7 @@ class _ProgramPageState extends State<ProgramPage> {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                primary: startButtonColor,
+                backgroundColor: startButtonColor,
                 padding: EdgeInsets.symmetric(vertical: 15.0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
