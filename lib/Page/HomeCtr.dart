@@ -16,8 +16,5 @@ class HomeCtr extends GetResponsiveView {
     return const HomePage();
   }
 
-  @override
-  Widget tablet() {
-    return const TabletView();
-  }
+
 }
